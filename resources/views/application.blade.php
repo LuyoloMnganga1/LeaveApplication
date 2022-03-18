@@ -59,13 +59,13 @@
             <td>
                 <form action="{{ url('deleteApplication', $item->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('leave.show',$item->id) }}">View</a>
+                    <a class="btn btn-info" href="{{ route('leave.show',$item->id) }}"><i class="fa fa-eye"></i> View</a>
     
-                    <a class="btn btn-primary" id = "edit" href="{{ route('leave.edit',$item->id) }}">Edit</a>
+                    <a class="btn btn-primary" id = "edit" href="{{ route('leave.edit',$item->id) }}"><i class="fa fa-pen"></i> Edit</a>
                     @csrf
                     {{ method_field('GET') }}
                 
-                    <button type="submit" name="archive" onclick="archiveFunction()" class="btn btn-danger">Delete</button>
+                    <button type="submit" name="archive" onclick="archiveFunction()" class="btn btn-danger"> <i class="fa fa-trash"></i> Delete</button>
                 </form>
             </td>
         </tr>

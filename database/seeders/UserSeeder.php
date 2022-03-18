@@ -196,6 +196,7 @@ class UserSeeder extends Seeder
             'name' => 'Time Of Without Pay',
             'numOfDays' => '5',
         ]);
+        
         DB::table('holiday')->insert(
             [
             'name' => 'New Year\'s Day',
@@ -203,67 +204,88 @@ class UserSeeder extends Seeder
             'created_at'=>now(),
             'updated_at' => now(),
             ],
+        );
+         DB::table('holiday')->insert(
              [
             'name' => 'Human Rights Day',
             'date' => '2022-03-21',
             'created_at'=>now(),
             'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
             'name' => 'Good Friday',
             'date' => '2022-04-15',
             'created_at'=>now(),
             'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'Family Day',
                 'date' => '2022-04-18',
                 'created_at'=>now(),
                 'updated_at' => now(),
             ],
-            
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'Freedom Day',
                 'date' => '2022-04-27',
                 'created_at'=>now(),
                 'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'International Workers\' Day',
                 'date' => '2022-05-02',
                 'created_at'=>now(),
                 'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'Youth Day (in South Africa)',
                 'date' => '2022-06-16',
                 'created_at'=>now(),
                 'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'National Women\'s Day',
                 'date' => '2022-08-09',
                 'created_at'=>now(),
                 'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'Day of Reconciliation',
                 'date' => '2022-12-16',
                 'created_at'=>now(),
                 'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'Christmas Day',
                 'date' => '2022-12-25',
                 'created_at'=>now(),
                 'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'Heritage Day',
                 'date' => '2022-09-24',
                 'created_at'=>now(),
                 'updated_at' => now(),
             ],
+        );
+        DB::table('holiday')->insert(
             [
                 'name' => 'Boxing Day',
                 'date' => '2022-12-26',

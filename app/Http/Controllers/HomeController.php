@@ -18,10 +18,13 @@ class HomeController extends Controller
         $email = User::where('role','admin')->value('email');
         $name = User::where('email',$email)->value('name');
         $surname = User::where('email',$email)->value('surname');
-        if(($updated_date->diffInYears($current)) > 0){
+        $year = $current->year;
+        $tagertDate = Carbon::create($year, 1, 16, 8);
+     
+        if($current == $tagertDate){
             Mail::to($email)->send(new UpdateHolidays($name,$surname));
         }
 
-       return  view('welcome');
+       return  view('auth.login');
    }
 }

@@ -24,7 +24,7 @@
                 <h2 class="pull-right"> Department Names Table</h2>
             </div>
             <div class="pull-right2">
-                <a href="{{ url('departmentAdd')}}" class = "btn btn-success btn-sm" >Add Department</a>  
+                <a href="{{ url('departmentAdd')}}" class = "btn btn-success btn-sm" ><i class="fa fa-plus"></i>Add Department</a>  
             </div>
         </div>
     </div>
@@ -46,11 +46,11 @@
                 <form action="{{ url('departmentdestroy', $item->id) }}" method="POST">
    
     
-                    <a class="btn btn-primary" href="{{ route('editDepartment',$item->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('editDepartment',$item->id) }}"><i class="fa fa-pen"></i> Edit</a>
                     @csrf
                     {{ method_field('GET') }}
                 
-                    <button type="submit" name="archive" onclick="archiveFunction()" class="btn btn-danger">Delete</button>
+                    <button type="submit" name="archive" onclick="archiveFunction()" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                </form>
             </td>
         </tr>
