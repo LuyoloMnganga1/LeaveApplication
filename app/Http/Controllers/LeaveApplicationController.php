@@ -30,7 +30,7 @@ class LeaveApplicationController extends Controller
     {
         $applications = LeaveApplication::where('department','LIKE',"%".Auth::user()->department."%")->get();
         $i = 1;
-        return view('applicationHod')->with('applications',$applications)->with('i',$i);
+        return view('application')->with('applications',$applications)->with('i',$i);
     }
     /**
      * Show the form for creating a new resource.
@@ -221,7 +221,7 @@ class LeaveApplicationController extends Controller
      * @param  \App\Models\LeaveApplication  $leaveApplication
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id,$name,$surname,$email)
+    public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'status' => ['required', 'string', 'max:255'],
@@ -239,9 +239,9 @@ class LeaveApplicationController extends Controller
             $reason =  $request->Rejected;
         }
         $data = [
-            'name'=>$name,
-            'surname'=>$surname,
-            'email'=>$email,
+            'name'=> $request->name,
+            'surname'=> $request->surname,
+            'email'=> $request->email,
             'status'=>$request->status,
             'Rejected' => $reason,
         ];

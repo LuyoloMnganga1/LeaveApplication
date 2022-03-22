@@ -100,7 +100,7 @@ class DashboardController extends Controller
     public function userListHod(){
         $data = User::where('department','LIKE',"%".Auth::user()->department."%")->get();
         $i=1;
-        return view('usersHod')->with('data',$data)->with('i',$i);
+        return view('users')->with('data',$data)->with('i',$i);
     }
     /**
      * Show the form for creating a new resource.

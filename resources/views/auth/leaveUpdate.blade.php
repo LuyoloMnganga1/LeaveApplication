@@ -36,7 +36,7 @@
     @endif
         <h2>Leave Application</h2>
         <p>Please fill this form to update leave status.</p>
-        <form  method="post" action="{{ url ('leaveStatus', ['id'=>$data->id, 'name'=>$data->name, 'surname'=>$data->surname, 'email'=>$data->email]) }}">
+        <form  method="post" action="{{ url ('leaveStatus',$data->id) }}">
               @csrf
             {{ method_field('GET') }}
             <div class="form-group" id="TextSize">

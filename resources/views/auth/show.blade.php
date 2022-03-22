@@ -13,7 +13,6 @@
 @endif
 @if(Auth::user()->hasRole('admin'))
         <form method="GET" action="{{ url('userList') }}">
-@endif
             @csrf
             {{ __('Show User') }}
             @if ($errors->any())
