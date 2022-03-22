@@ -25,6 +25,6 @@ class HomeController extends Controller
             Mail::to($email)->send(new UpdateHolidays($name,$surname));
         }
 
-       return  view('auth.login');
+       return  view('welcome');
    }
 }

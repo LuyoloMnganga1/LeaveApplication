@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('Family');
             $table->string('Maternity');
             $table->string('TimeOfWithoutPay')->nullable();
+            $table->string('TotalDays');
             $table->timestamps();
         });
     }

@@ -71,12 +71,13 @@ class RegisteredUserController extends Controller
             'surname'=> $request->surname, 
             'email' => $request->email, 
             'Annual' => '15', 
-            'Vaccation' =>'10',
-            'Sick' =>'5',
-            'Study' =>'7',
-            'Family' =>'4',
-            'Maternity' =>'14',
+            'Vaccation' =>'',
+            'Sick' =>'',
+            'Study' =>'10',
+            'Family' =>'0',
+            'Maternity' =>'0',
             'TimeOfWithoutPay' =>'',
+            'TotalDays' => '15',
         ]);
 
         $data = [
