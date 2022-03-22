@@ -8,8 +8,12 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+@if(Auth::user()->hasRole('department-head'))
+<form method="GET" action="{{ url('userListHod') }}">
+@endif
+@if(Auth::user()->hasRole('admin'))
         <form method="GET" action="{{ url('userList') }}">
+@endif
             @csrf
             {{ __('Show User') }}
             @if ($errors->any())

@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <h1>Update Holidays</h1>
 <p>Good day {{$name }}  {{$surname}}, <br>
-Please update the dates of all the holidays in the Leave Application system.
+Please update the dates of all the holidays in the Leave Application system also other related things that needs to be updated or deleted.
 <br></br>
 
 Administrator

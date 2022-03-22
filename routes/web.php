@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('leave', LeaveApplicationController::class);
     Route::get('leaveForm', [LeaveApplicationController::class, 'create'])->name('leaveForm');
     Route::get('leaveStatus/{id}/{name}/{surname}/{email}', [LeaveApplicationController::class, 'update'])->name('leaveStatus');
-    Route::get('leaveApply/{name}/{surname}/{email}/{department}', [LeaveApplicationController::class, 'store'])->name('leaveApply');
+    Route::get('leaveApply', [LeaveApplicationController::class, 'store'])->name('leaveApply');
     Route::get('/userList',[DashboardController::class,'userList'])->name('userList');
     Route::get('/applicationList',[LeaveApplicationController::class,'index'])->name('applicationList');
     Route::post('updateUser/{id}',[DashboardController::class,'update'])->name('updateUser');

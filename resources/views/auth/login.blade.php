@@ -5,11 +5,6 @@
                 <x-application-logo style="margin-top: -150%;" class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
-        <script type="text/javascript">
-        function preventBack() { window.history.forward(); }
-        setTimeout("preventBack()", 0);
-        window.onunload = function () { null };
-    </script>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 

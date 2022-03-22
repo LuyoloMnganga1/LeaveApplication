@@ -45,7 +45,7 @@ class DashboardController extends Controller
             $dep = Department::all()->count();
             $leaves = leaves::all()->count();
             $holiday = holiday::all()->count();
-            return view('admindashboard',$data)->with('holiday',$holiday)->with('user',$user)->with('app',$app)->with('leaves',$leaves)->with('dep',$dep);
+            return view('dashboard',$data)->with('holiday',$holiday)->with('user',$user)->with('app',$app)->with('leaves',$leaves)->with('dep',$dep);
         } else  if (Auth::user()->hasRole('department-head')){
             $user = User::where('department',Auth::user()->department)->count();
             $app = LeaveApplication::where('department',Auth::user()->department)->count();
@@ -63,7 +63,7 @@ class DashboardController extends Controller
             }
         
             $data['chart_data'] = json_encode($data);
-            return view('departmentheaddashboard',$data)->with('user',$user)->with('app',$app);
+            return view('dashboard',$data)->with('user',$user)->with('app',$app);
         }else if (Auth::user()->hasRole('user')){
 
             $record = LeaveApplication::select(\DB::raw("COUNT(*) as count"), \DB::raw("MONTHNAME(created_at) as month_name"), \DB::raw("MONTH(created_at) as month"))
@@ -86,7 +86,7 @@ class DashboardController extends Controller
             $list = LeaveApplication::where('email',Auth::user()->email)->get();
             $i = 1;
             $j = 1;
-            return view('userdashboard',$data)->with('leaves',$leaves)->with('num',$num)->with('list',$list)->with('app',$app)->with('i',$i)->with('j',$j);
+            return view('dashboard',$data)->with('leaves',$leaves)->with('num',$num)->with('list',$list)->with('app',$app)->with('i',$i)->with('j',$j);
         } 
 
 

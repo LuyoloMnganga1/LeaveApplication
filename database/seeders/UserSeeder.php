@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             [
             'name' => 'Mxolisi',
             'surname'=> 'Poni',
-            'phone' => '+27431231754',
+            'phone' => '0431231754',
             'email' => 'mxolisi.poni@ictchoice.co.za',
             'department' => 'Software Development',
             'role' => 'admin',
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Luyolo',
                 'surname'=> 'Mnganga',
-                'phone' => '+27846542443',
+                'phone' => '0846542443',
                 'email' => 'luyolo.mnganga@ictchoice.co.za',
                 'department' => 'Software Development',
                 'role' => 'admin',
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Ayabonga',
                 'surname'=> 'Maqashu',
-                'phone' => '+27431231754',
+                'phone' => '0431231754',
                 'email' => 'ayabonga.maqashu@ictchoice.co.za',
                 'department' => 'Software Development',
                 'role' => 'admin',
@@ -56,7 +56,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Nosisa',
                 'surname'=> 'Zamxaka',
-                'phone' => '+27431231754',
+                'phone' => '0431231754',
                 'email' => 'nosisa.zamxaka@ictchoice.co.za',
                 'department' => 'Software Development',
                 'role' => 'admin',
@@ -68,7 +68,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Yolanda',
                 'surname'=> 'Mlakuhlwa',
-                'phone' => '+27431231754',
+                'phone' => '0431231754',
                 'email' => 'yolanda.mlakuhlwa@ictchoice.co.za',
                 'department' => 'Software Development',
                 'role' => 'admin',
@@ -80,7 +80,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Andile',
                 'surname'=> 'Majiba',
-                'phone' => '+27431231754',
+                'phone' => '0431231754',
                 'email' => 'andile.majiba@ictchoice.co.za',
                 'department' => 'Software Development',
                 'role' => 'admin',
@@ -92,7 +92,7 @@ class UserSeeder extends Seeder
             [ 
                 'name' => 'avile',
                 'surname'=> 'momoza',
-                'phone' => '+27431231754',
+                'phone' => '0431231754',
                 'email' => 'avile.momoza@ictchoice.co.za',
                 'department' => 'Software Development',
                 'role' => 'admin',
@@ -174,15 +174,15 @@ class UserSeeder extends Seeder
         ]);
         DB::table('leaves')->insert([
             'name' => 'Annual',
-            'numOfDays' => '5',
+            'numOfDays' => '15',
         ]);
         DB::table('leaves')->insert([
             'name' => 'Sick',
-            'numOfDays' => '5',
+            'numOfDays' => '0',
         ]);
         DB::table('leaves')->insert([
             'name' => 'Study',
-            'numOfDays' => '5',
+            'numOfDays' => '10',
         ]);
         DB::table('leaves')->insert([
             'name' => 'Family',
@@ -190,11 +190,11 @@ class UserSeeder extends Seeder
         ]);
         DB::table('leaves')->insert([
             'name' => 'Maternity',
-            'numOfDays' => '5',
+            'numOfDays' => '90',
         ]);
         DB::table('leaves')->insert([
             'name' => 'Time Of Without Pay',
-            'numOfDays' => '5',
+            'numOfDays' => '',
         ]);
         
         DB::table('holiday')->insert(

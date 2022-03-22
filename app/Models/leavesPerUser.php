@@ -21,5 +21,6 @@ class leavesPerUser extends Model
         'Family',
         'Maternity',
         'TimeOfWithoutPay',
+        'TotalDays',
     ];
 }

@@ -7,11 +7,7 @@
 @include('layouts.header')
 
 </head>
-<script type="text/javascript">
-        function preventBack() { window.history.forward(); }
-        setTimeout("preventBack()", 0);
-        window.onunload = function () { null };
-    </script>
+
 <body>
 
 <div class="wrapper">
@@ -25,76 +21,73 @@
             </div>
             <!--menu item-->
             <ul>
-               
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item1">
+            <li class="nav-item">
+                    <a href="{{ url ('dashboard')}}" class="nav-link">
                         <span class="icon"><i class="fas fa-desktop"></i></span>
-                        <span class="item">My Dashboard</span><i class="bi small bi-caret-down-fill"></i>
+                        <span class="item">My Dashboard</span>
                     </a>
-                    <ul id="menu_item1" class="submenu collapse" data-bs-parent="#nav_accordion">
-                    <li>
-                    <a href="{{ url('department')}}" class="nav-link">
+                </li>
+               @if(Auth::user()->hasRole('admin'))
+                <li class="nav-item">
+                    <a href="{{ route('department')}}" class="nav-link">
                         <span class="icon"><i class="fas fa-building"></i></span>
                         <span class="item">Departments</span>
                     </a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                     <a href="{{url('leaves')}}" class="nav-link">
                         <span class="icon"><i class="fas fa-bed"></i></span>
-                        <span class="item">List of Leaves</span>
+                        <span class="item">Leaves</span>
                     </a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="{{url('holiday')}}" class="nav-link">
                         <span class="icon"><i class="fas fa-plane"></i></span>
-                        <span class="item">List of Holidays</span>
+                        <span class="item">Holidays</span>
                     </a>
-                </li>
-                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" >
+                    <a href="{{ route ('userList')}}" class="nav-link" >
                         <span class="icon"><i class="fas fa-user"></i></span>
-                        <span class="item">People</span><i class="bi small bi-caret-down-fill"></i>
+                        <span class="item">Users</span>
                     </a>
-                    <ul id="menu_item2" class="submenu collapse" data-bs-parent="#nav_accordion">
-                    <li>
-                    <a href="{{ url ('userList')}}" class="nav-link">
-                        <span class="icon"><i class="fas fa-user-friends"></i></span>
-                        <span class="item">List of People</span>
-                    </a>
-                    </li>
-                    <li>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('auth.create')}}" class="nav-link">
                         <span class="icon"><i class="fas fa-user-plus"></i></span>
-                        <span class="item">Add People</span>
+                        <span class="item">Add User</span>
                     </a>
                 </li>
-                    </ul>
-                </li>
-            
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item3">
+                    <a href="{{ url('applicationList')}}" class="nav-link" >
                         <span class="icon"><i class="fas fa-list"></i></span>
-                        <span class="item">Application</span><i class="bi small bi-caret-down-fill"></i>
+                        <span class="item">Applications</span>
+                    </a>                   
+                </li>
+              
+                @endif
+               @if(Auth::user()->hasRole('department-head'))
+                <li class="nav-item">
+                   <a href="{{ url ('userListHod')}}" class="nav-link">
+                        <span class="icon"><i class="fas fa-user-alt"></i></span>
+                        <span class="item">Users</span>
                     </a>
-                    <ul id="menu_item3" class="submenu collapse" data-bs-parent="#nav_accordion">
-                    <li>
-                    <a href="{{ url('applicationList')}}" class="nav-link">
-                        <span class="icon"><i class="fas fa-list-alt"></i></span>
-                        <span class="item">Application List</span>
+                </li>
+                <li class="nav-item"> 
+                   <a href="{{ url('applicationListHod')}}" class="nav-link">
+                        <span class="icon"><i class="fas fa-list"></i></span>
+                        <span class="item">Applications</span>
                     </a>
-                    </li>
-                    <li>
+                </li>
+                
+               @endif
+               <li class="nav-item">
                     <a href="{{ route('leave.create')}}"class="nav-link">
                         <span class="icon"><i class="fas fa-plus"></i></span>
                         <span class="item">apply for leave</span>
                     </a>
                 </li>
-                    </ul>
-                    
-                </li>
-                <li>
+                <li class="nav-item">
                     <a href="{{ url('SignOut')}}" class="nav-link">
                         <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                         <span class="item">Log Out</span>
@@ -139,5 +132,15 @@
   $('.wrapper .sidebar ul li a').addClass('.wrapper .sidebar ul li a.active');
 
 });
+ </script>
+ <script>
+      jQuery(function($) {
+     var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+     $('.wrapper .sidebar ul li a').each(function() {
+      if (this.href === path) {
+       $(this).addClass('active');
+      }
+     });
+    });
  </script>
 </html>

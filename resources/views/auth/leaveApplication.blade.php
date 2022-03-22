@@ -198,7 +198,7 @@ body.active .wrapper .section{
     @endif
         <h2>Leave Application</h2>
         <p>Please fill this form to apply for leave.</p>
-        <form  method="post" action=" {{ route('leaveApply',[ 'name'=>Auth::user()->name, 'surname'=>Auth::user()->surname, 'email'=>Auth::user()->email, 'department'=>Auth::user()->department]) }}">
+        <form  method="post" action=" {{ route('leaveApply')}}">
               @csrf
             {{ method_field('GET') }}
             <div class="form-group" id="TextSize">

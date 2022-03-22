@@ -50,7 +50,7 @@ class LeaveApplicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$name,$surname,$email,$department)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => [ 'string', 'max:255'],
@@ -68,28 +68,29 @@ class LeaveApplicationController extends Controller
                         ->withInput();
         }
         $data =  LeaveApplication::create([
-            'name' => $name,
-            'surname' => $surname,
-            'email' =>$email,
-            'department' => $department,
+            'name' =>Auth::user()->name,
+            'surname' => Auth::user()->surname,
+            'email' =>Auth::user()->email,
+            'department' =>Auth::user()->department,
             'leavetype' => $request->leavetype,
             'startDate' => $request->startDate,
             'endDate' =>$request->endDate,
             'comments' => $request->comments,
-            'status'=> 'Pending'
+            'status'=> 'Pending',
+            'Rejected'=>  'N/A'
+
         ]);
         $user = [
-            'name' => $name,
-            'surname' => $surname,
-            'department' => $department,
+            'name' => Auth::user()->name,
+            'surname' =>Auth::user()->surname,
+            'department' =>Auth::user()->department,
             'leavetype' => $request->leavetype,
             'startDate' => $request->startDate,
             'endDate' =>$request->endDate,
             'comments' => $request->comments,
         ];    
-        $hod = User::where('department',$department)->where('role', 'department-head')->first();
-    
-        Mail::to($hod['email'])->send(new leaveApp($user,$hod));
+        $hod = User::where('department',Auth::user()->department)->where('role', 'department-head')->first();
+        Mail::to($hod->email)->send(new leaveApp($user,$hod));
         if (Auth::user()->hasRole('user')){
             return redirect('/dashboard');
         }else  if (Auth::user()->hasRole('department-head')){

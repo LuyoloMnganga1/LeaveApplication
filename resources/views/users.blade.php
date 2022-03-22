@@ -1,18 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <br></br>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">People ></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">List of Users<span class="sr-only">(current)</span></a>
-             
-                </ul>
-            </div>
-            </nav>
+           
                 <!-- Buttons-->
                 <br></br>
                 <div >
@@ -46,17 +35,17 @@
             <td>{{ $item->phone }}</td>
             <td>{{ $item->email }}</td>
             <td>{{ $item->department }}</td>
-            <td><button type="button" class="btn btn-outline-warning">{{ $item->role }}</button></td>
+            <td><button disabled type="button" class="btn btn-dark">{{ $item->role }}</button></td>
             <td>
                 <form action="{{ url('destroy', $item->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('users.show',$item->id) }}"><i class="fa fa-eye"></i>Show</a>
+                    <a class="btn bg-transparent btn-outline-primary" href="{{ route('users.show',$item->id) }}"><i class="fa fa-eye"></i></a>
     
-                    <a class="btn btn-primary" href="{{ route('users.edit',$item->id) }}"> <i class="fa fa-pen"></i> Edit</a>
+                    <a class="btn bg-transparent btn-outline-info" href="{{ route('users.edit',$item->id) }}"> <i class="fa fa-pen"></i> </a>
                     @csrf
                     {{ method_field('GET') }}
                 
-                    <button type="submit" name="archive" onclick="archiveFunction()" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                    <button type="submit" name="archive" onclick="archiveFunction()" class="btn bg-transparent btn-outline-danger"><i class="fa fa-trash"></i> </button>
                 </form>
             </td>
         </tr>

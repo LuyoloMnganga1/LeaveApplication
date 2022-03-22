@@ -1,183 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-@include('layouts.header')
-<style>
-    /* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  /* Set a style for all buttons */
-  button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  /* Extra styles for the cancel button */
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-  }
-  
-  /* Center the image and position the close button */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
-  }
-  
-  img.avatar {
-    width: 40%;
-    border-radius: 50%;
-  }
-  
-  .container {
-    padding: 16px;
-  }
-  
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
-  
-  /* The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button (x) */
-  .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: red;
-    cursor: pointer;
-  }
-  
-  /* Add Zoom Animation */
-  .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-  }
-  
-  @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-  }
-    
-  @keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-  }
-  
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-  }
-</style>
-</head>
-<body>
-
-    <div class="wrapper">
-        <!--Top menu -->
-        <div class="sidebar">
-           <!--profile image & text-->
-           <div class="profile">
-           <a href="{{ url ('dashboard')}}"><img  src="{{ url('/images/logo.png') }}" /></a>
-                <h3>{{ Auth::user()->name}} {{ Auth::user()->surname}} </h3>
-                <p>{{ Auth::user()->department }} <br> {{ Auth::user()->role }} </p>
-            </div>
-            <!--menu item-->
-            <ul>
-               
-                <li>
-                    <a href="#" class="active nav-link">
-                        <span class="icon"><i class="fas fa-desktop"></i></span>
-                        <span class="item">My Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('leave.create')}}"  class="nav-link">
-                        <span class="icon"><i class="fas fa-plus"></i></span>
-                        <span class="item">apply for leave</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('SignOut')}}"  class="nav-link">
-                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                        <span class="item">Log Out</span>
-                    </a>
-                </li>
-              
-            </ul>
-        </div>
-        <div class="section">
-            <div class="top_navbar">
-                <div class="hamburger">
-                    <a href="#">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </div>
-            </div>
-              <!-- alert message-->  
-              @if ($message = Session::get('success'))
-                <br></br>
-                <div id="mesg">
-                <div class="alert alert-success alert-dismissible">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <p>{{ $message }}</p>
-                        </div>
-                        </div>
-                @endif
+@extends('layouts.main')
+@section('content')
+@if(Auth::user()->hasRole('admin'))
             <!-- cards-->
-             <div class="main-part">
+            <div class="main-part">
+            <div class="cpanel">
+            <div class="icon-part">
+            <i class="fa fa-users" aria-hidden="true"></i><br>
+            <small>Users</small>
+            <p>{{ $user }}</p>
+            </div>
+            <div class="card-content-part">
+            <a href="{{ url ('userList')}}">More Details </a>
+            </div>
+            </div>
+            <div class="cpanel cpanel-blue">
+            <div class="icon-part">
+            <i class="fa fa-tasks" aria-hidden="true"></i><br>
+            <small>Applications</small>
+            <p>{{ $app }}</p>
+            </div>
+            <div class="card-content-part">
+            <a href="{{ url('applicationList')}}">More Details </a>
+            </div>
+            </div>
+            
+            <div class="cpanel cpanel-orange">
+            <div class="icon-part">
+            <i class="fa fa-building" aria-hidden="true"></i><br>
+            <small>Departments</small>
+            <p>{{ $dep }}</p>
+            </div>
+            <div class="card-content-part">
+            <a href="{{ url('department')}}">More Details </a>
+            </div>
+            </div>
+            <div class="cpanel cpanel-red">
+            <div class="icon-part">
+            <i class="fa fa-bed" aria-hidden="true"></i><br>
+            <small>Leaves</small>
+            <p>{{ $leaves}}</p>
+            </div>
+            <div class="card-content-part">
+            <a href="{{ url('leaves')}}">More Details </a>
+            </div>
+            </div>
+            <div class="cpanel cpanel-green">
+            <div class="icon-part">
+            <i class="fas fa-plane" aria-hidden="true"></i><br>
+            <small>Public holidays</small>
+            <p>{{ $holiday}}</p>
+            </div>
+            <div class="card-content-part">
+            <a href="{{ url('holiday')}}">More Details </a>
+            </div>
+            </div>
+            @endif
+             @if(Auth::user()->hasRole('department-head'))
+                <!-- cards-->
+            <div class="main-part">
+            <div class="cpanel">
+            <div class="icon-part">
+            <i class="fa fa-users" aria-hidden="true"></i><br>
+            <small>Users</small>
+            <p>{{ $user }}</p>
+            </div>
+            <div class="card-content-part">
+            <a href="{{ url ('userListHod')}}">More Details </a>
+            </div>
+            </div>
+            <div class="cpanel cpanel-blue">
+            <div class="icon-part">
+            <i class="fa fa-tasks" aria-hidden="true"></i><br>
+            <small>Applications</small>
+            <p>{{ $app }}</p>
+            </div>
+            <div class="card-content-part">
+            <a href="{{ url('applicationListHod')}}">More Details </a>
+            </div>
+            </div>
+            
+             @endif
+             @if(Auth::user()->hasRole('user'))
+             <link rel="stylesheet" href="css/userstyle.css">
+                    <!-- cards-->
+                    <div class="main-part">
             <div class="cpanel">
             <div class="icon-part">
             <i class="fa fa-list" aria-hidden="true"></i><br>
@@ -281,16 +187,17 @@ input[type=text], input[type=password] {
   </form>
 </div>
 </div>
+             @endif
+
+    <!-- end of cards-->
+        </div>
+        <div style ="margin: 5%">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
 
     </div>
-  <script>
- var hamburger = document.querySelector(".hamburger");
-    hamburger.addEventListener("click", function(){
-        document.querySelector("body").classList.toggle("active");
-    })
-  </script>  
-<script>
+    <script>
     var cData = JSON.parse('<?php echo $chart_data; ?>');
   const data = {
     labels: cData.label,
@@ -335,7 +242,7 @@ input[type=text], input[type=password] {
     type: 'bar',
     data: data,
     options: {
-      scales: {
+        scales: {
       y: {
         beginAtZero: true
       }
@@ -371,6 +278,4 @@ window.onclick = function(event) {
     }
 };
 </script>
-
-</body>
-</html>
+@stop
