@@ -87,7 +87,7 @@
                         <span class="item">apply for leave</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item log_out">
                     <a href="{{ url('SignOut')}}" class="nav-link">
                         <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                         <span class="item">Log Out</span>
@@ -101,6 +101,7 @@
                 <div class="hamburger">
                     <a href="#">
                         <i class="fas fa-bars"></i>
+                        <h1>LEAVE APPLICATION SYSTEM</h1>
                     </a>
                 </div>
                 

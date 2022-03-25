@@ -40,7 +40,11 @@ body{
     color: #ffffff;
     margin: 10px 0 5px;
 }
-
+.wrapper .sidebar .log_out{
+    position: absolute;
+    bottom: 0;
+    width: 230px;
+  }
 .wrapper .sidebar .profile p{
     color: rgb(195,195,108);
     font-size: 14px;
