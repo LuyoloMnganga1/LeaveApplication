@@ -52,7 +52,7 @@
                @auth
                    <a href="{{ url('/dashboard') }}"><button type="button" id="btn" class="btn btn-info">Dashboard</button></a>
                @else
-                   <a href="{{ route('login') }}"><button type="button" id="btn" class="btn btn-success">Sign In</button></a>
+                   <a href="{{ route('login') }}"><button type="button" id="btn" class="btn btn-success">Log In</button></a>
 
                @endauth
        @endif

@@ -101,10 +101,9 @@
                 <div class="hamburger">
                     <a href="#">
                         <i class="fas fa-bars"></i>
-                        <h1>LEAVE APPLICATION SYSTEM</h1>
                     </a>
                 </div>
-                
+                    
             </div>
                    <div> 
                 <!-- alert message-->  
