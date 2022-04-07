@@ -191,7 +191,7 @@
 
     <!-- end of cards-->
         </div>
-        <div style ="margin: 5%">
+        <div>
                 <canvas id="myChart"></canvas>
             </div>
         </div>
