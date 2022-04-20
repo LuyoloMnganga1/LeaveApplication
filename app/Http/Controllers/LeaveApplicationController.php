@@ -271,6 +271,6 @@ class LeaveApplicationController extends Controller
     }
     public function holidaydestroy($id){
         holiday::destroy($id);
-        return redirect()->route('holiday')->with('success', 'Leave type successfully deleted');
+        return redirect()->route('holiday')->with('success', 'Holiday successfully deleted');
     }
 }
